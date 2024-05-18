@@ -1,0 +1,17 @@
+{
+  "files.associations": {
+    "utils.h": "c",
+    "trie.h": "c",
+    "stdio.h": "c",
+    "string.h": "c",
+    "stdlib.h": "c",
+    "stdbool.h": "c"
+  },
+  "makefile.launchConfigurations": [
+    {
+      "cwd": "/Users/ikelsio/Dev/Projects/trie-rway/dist",
+      "binaryPath": "/Users/ikelsio/Dev/Projects/trie-rway/dist/trie-rway",
+      "binaryArgs": []
+    }
+  ]
+}
