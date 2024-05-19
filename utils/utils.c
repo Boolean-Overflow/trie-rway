@@ -2,6 +2,17 @@
 #include <stdlib.h>
 #include "./utils.h"
 
+void clear_console() {
+  printf("\033[2J\033[H");
+}
+
+void pause(char* str) {
+  puts(*str ? str : "\nClique em qualquer tecla para continuar.");
+  fflush(stdin);
+  getchar();
+  clear_console();
+}
+
 int show_options(const char** options, int options_count) {
   if (!options || !(*options) || options_count < 1) {
     puts("Nothing to show!");
@@ -21,6 +32,7 @@ void validate_option(int* option, int min, int max, char* error_message) {
     if (!valid) puts(error_message);
     printf("[%d-%d]: ", min, max);
 
+    fflush(stdin);
     valid = scanf("%d", option) && (*option >= min && *option <= max);
   } while (!valid);
 }
@@ -32,7 +44,7 @@ int menu(int(*show_options)()) {
   }
 
   int options_count = show_options();
-  printf("%2d - EXIT\n", ++options_count);
+  printf("%2d - Exit\n", ++options_count);
   int option;
 
   validate_option(&option, 1, options_count, NULL);
